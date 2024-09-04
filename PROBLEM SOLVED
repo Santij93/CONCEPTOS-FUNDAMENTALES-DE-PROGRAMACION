@@ -1,0 +1,41 @@
+Hi everyone, The problem I will develop here involves comparing two real numbers to determine if they are "equal," but we need to consider a tolerance. This tolerance defines how much difference between the two numbers is acceptable before we consider them different. This is useful, for example, in financial or scientific calculations where small differences might be insignificant.
+
+Problem:
+Input: Three real numbers. The first two are the numbers we need to compare, and the third one is the tolerance.
+Output: We should print "equals" if the numbers are equal within the tolerance, and "not equals" if they are not.
+Example
+Input: 2.999 3 0.00000001
+Output: equals
+In this case, although 2.999 and 3 are not exactly the same, the difference between them is 0.001, which is greater than the tolerance, so the result would be "not equals." But if the tolerance were larger, say 0.01, then the result would be "equals."
+
+Solution in Java
+Here’s a simple Java solution that solves the problem:
+import java.util.Scanner;
+
+public class RealNumberEquality {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Read the three numbers from the input
+        double num1 = scanner.nextDouble();
+        double num2 = scanner.nextDouble();
+        double tolerance = scanner.nextDouble();
+        
+        // Calculate the absolute difference between the two numbers
+        double difference = Math.abs(num1 - num2);
+        
+        // Compare the difference with the tolerance
+        if (difference <= tolerance) {
+            System.out.println("equals");
+        } else {
+            System.out.println("not equals");
+        }
+        
+        scanner.close();
+    }
+}
+Testing
+I tested this code with different inputs, and it works correctly:
+
+Input: 3.14159 3.1416 0.0001 -> Output: equals
+Input: 1.0001 1.0002 0.00001 -> Output: not equals
